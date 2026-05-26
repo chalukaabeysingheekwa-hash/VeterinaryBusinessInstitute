@@ -1,0 +1,201 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e5]:
+    - generic [ref=e6]:
+      - generic [ref=e7]:
+        - generic [ref=e8]:
+          - link "Claude" [ref=e9] [cursor=pointer]:
+            - /url: https://claude.ai
+            - img "Claude" [ref=e10]
+          - generic [ref=e12]: Content is user-generated and unverified.
+        - generic [ref=e13]:
+          - img [ref=e14]
+          - generic [ref=e16]: "7"
+      - generic [ref=e17]:
+        - button "Copy link" [ref=e20] [cursor=pointer]:
+          - img [ref=e21]
+        - button "Report" [ref=e25] [cursor=pointer]:
+          - img [ref=e26]
+        - button "Customize" [ref=e28] [cursor=pointer]:
+          - img [ref=e29]
+          - text: Customize
+    - iframe [ref=e36]:
+      - generic [active] [ref=f1e1]:
+        - alert [ref=f1e2]
+        - iframe [ref=f1e5]:
+          - generic [active] [ref=f7e1]:
+            - generic [ref=f7e4]:
+              - img "Thriving Dentist" [ref=f7e5]
+              - generic [ref=f7e7]: Annual Expert Panel 2026
+            - generic [ref=f7e9]:
+              - text: Struggling to convert leads into booked patients?
+              - generic [ref=f7e10]: Live Panel — Free to Attend
+            - generic [ref=f7e13]:
+              - generic [ref=f7e14]:
+                - generic [ref=f7e15]:
+                  - generic [ref=f7e16]:
+                    - img [ref=f7e17]
+                    - text: Live Webinar
+                  - generic [ref=f7e19]:
+                    - img [ref=f7e20]
+                    - text: 4-Speaker Expert Panel
+                - heading "Proven Strategies for New Patient Acquisition, Conversion, & Sustainable Growth" [level=1] [ref=f7e25]:
+                  - text: Proven Strategies for
+                  - emphasis [ref=f7e26]: New Patient Acquisition, Conversion, & Sustainable Growth
+                - paragraph [ref=f7e27]: Struggling to convert leads into booked patients? Four dental growth experts break down what's actually working in 2026 — from multi-channel acquisition to converting calls into accepted treatment and building referral-driven growth.
+                - generic [ref=f7e28]:
+                  - generic [ref=f7e29]:
+                    - img [ref=f7e31]
+                    - generic [ref=f7e33]:
+                      - generic [ref=f7e34]: Date
+                      - text: Monday, April 20, 2026
+                  - generic [ref=f7e35]:
+                    - img [ref=f7e37]
+                    - generic [ref=f7e40]:
+                      - generic [ref=f7e41]: Time
+                      - text: 8:00 PM EST
+                  - generic [ref=f7e42]:
+                    - img [ref=f7e44]
+                    - generic [ref=f7e47]:
+                      - generic [ref=f7e48]: Format
+                      - text: Panel + Live Q&A
+                - generic [ref=f7e49]:
+                  - generic [ref=f7e50]:
+                    - generic [ref=f7e51]: "8"
+                    - generic [ref=f7e52]: Days
+                  - generic [ref=f7e53]:
+                    - generic [ref=f7e54]: "0"
+                    - generic [ref=f7e55]: Hours
+                  - generic [ref=f7e56]:
+                    - generic [ref=f7e57]: "37"
+                    - generic [ref=f7e58]: Mins
+                  - generic [ref=f7e59]:
+                    - generic [ref=f7e60]: "52"
+                    - generic [ref=f7e61]: Secs
+              - generic [ref=f7e62]:
+                - generic [ref=f7e63]:
+                  - generic [ref=f7e64]:
+                    - img [ref=f7e65]
+                    - text: Limited Seats Available
+                  - heading "Reserve Your Spot" [level=2] [ref=f7e67]
+                  - paragraph [ref=f7e68]: Free to attend — replay sent to all registrants
+                - generic [ref=f7e69]:
+                  - generic [ref=f7e70]: 📋
+                  - generic [ref=f7e71]:
+                    - text: Attendees will be eligible for a
+                    - strong [ref=f7e72]: special strategy meeting from Thriving Dentist
+                    - text: after the event
+                - generic [ref=f7e73]:
+                  - generic [ref=f7e74]:
+                    - generic [ref=f7e75]:
+                      - generic [ref=f7e76]: First Name *
+                      - textbox "First Name *" [ref=f7e77]:
+                        - /placeholder: First name
+                    - generic [ref=f7e78]:
+                      - generic [ref=f7e79]: Last Name *
+                      - textbox "Last Name *" [ref=f7e80]:
+                        - /placeholder: Last name
+                  - generic [ref=f7e81]:
+                    - generic [ref=f7e82]: Email Address *
+                    - textbox "Email Address *" [ref=f7e83]:
+                      - /placeholder: you@yourpractice.com
+                  - generic [ref=f7e84]:
+                    - generic [ref=f7e85]: Mobile Number *
+                    - textbox "Mobile Number *" [ref=f7e86]:
+                      - /placeholder: +1 (555) 123-4567
+                  - button "Register Free — Save My Seat →" [ref=f7e87] [cursor=pointer]
+                  - generic [ref=f7e88]:
+                    - img [ref=f7e89]
+                    - text: Your info is secure. We never spam — unsubscribe anytime.
+            - generic [ref=f7e93]:
+              - generic [ref=f7e94]:
+                - generic [ref=f7e95]: Meet the Panel
+                - heading "4 Leaders, 1 Conversation" [level=2] [ref=f7e96]
+                - paragraph [ref=f7e97]: Each panelist brings a different lens — from marketing to clinical operations to practice growth strategy.
+              - generic [ref=f7e98]:
+                - generic [ref=f7e99]:
+                  - generic [ref=f7e101]: Nicola Teudeaux
+                  - generic [ref=f7e102]: Founder/CEO, Transcendental
+                  - paragraph [ref=f7e103]: Dental industry strategist helping practices navigate market shifts and build sustainable growth systems.
+                - generic [ref=f7e104]:
+                  - generic [ref=f7e106]: Lori A. Parr, MS RDH
+                  - generic [ref=f7e107]: Founder, Houndstooth Dental Solutions
+                  - paragraph [ref=f7e108]: Dental hygiene and patient experience expert focused on building loyal patient relationships that drive referrals.
+                - generic [ref=f7e109]:
+                  - generic [ref=f7e111]: Dr. Michael J. Goldberg
+                  - generic [ref=f7e112]: Founder & CEO, Adjunct Associate Professor
+                  - paragraph [ref=f7e113]: Combines clinical excellence with academic rigor to deliver cutting-edge approaches to patient acquisition and case acceptance.
+                - generic [ref=f7e114]:
+                  - generic [ref=f7e116]: Dr. Vaheed Shahnam
+                  - generic [ref=f7e117]: Founder, Praxis Advisory
+                  - paragraph [ref=f7e118]: Practice growth advisor specializing in multi-channel marketing strategies and conversion rate optimization for dental practices.
+            - generic [ref=f7e120]:
+              - generic [ref=f7e121]:
+                - generic [ref=f7e122]: Panel Agenda
+                - heading "What We'll Cover" [level=2] [ref=f7e123]
+              - generic [ref=f7e124]:
+                - generic [ref=f7e125]:
+                  - generic [ref=f7e126]: "1"
+                  - generic [ref=f7e127]:
+                    - heading "The 2026 Market Landscape" [level=3] [ref=f7e128]
+                    - paragraph [ref=f7e129]: The biggest challenges and opportunities facing dental practices right now — and what the smartest practices are doing differently.
+                - generic [ref=f7e130]:
+                  - generic [ref=f7e131]: "2"
+                  - generic [ref=f7e132]:
+                    - heading "Multi-Channel Patient Acquisition" [level=3] [ref=f7e133]
+                    - paragraph [ref=f7e134]: Proven strategies to attract high-quality new patients cost-effectively — from SEO and Google Ads to referral systems and community outreach.
+                - generic [ref=f7e135]:
+                  - generic [ref=f7e136]: "3"
+                  - generic [ref=f7e137]:
+                    - heading "Lead-to-Treatment Conversion" [level=3] [ref=f7e138]
+                    - paragraph [ref=f7e139]: Practical ways to improve conversion rates from first call to booked appointment to accepted treatment — where most practices leak revenue.
+                - generic [ref=f7e140]:
+                  - generic [ref=f7e141]: "4"
+                  - generic [ref=f7e142]:
+                    - heading "Referral-Driven Sustainable Growth" [level=3] [ref=f7e143]
+                    - paragraph [ref=f7e144]: How exceptional patient experience drives referrals, loyalty, and compound growth that doesn't depend on ad spend.
+            - generic [ref=f7e146]:
+              - generic [ref=f7e147]:
+                - generic [ref=f7e148]: Is This For You?
+                - heading "This Panel Is Built For" [level=2] [ref=f7e149]
+              - generic [ref=f7e150]:
+                - generic [ref=f7e151]:
+                  - generic [ref=f7e152]: 🦷
+                  - heading "Practice Owners" [level=3] [ref=f7e153]
+                  - paragraph [ref=f7e154]: Who want more new patients without more ad spend — and a clear growth plan for 2026
+                - generic [ref=f7e155]:
+                  - generic [ref=f7e156]: 📈
+                  - heading "Office Managers" [level=3] [ref=f7e157]
+                  - paragraph [ref=f7e158]: Looking to improve call conversion rates and patient retention numbers
+                - generic [ref=f7e159]:
+                  - generic [ref=f7e160]: 🤝
+                  - heading "Marketing Directors" [level=3] [ref=f7e161]
+                  - paragraph [ref=f7e162]: Who need multi-channel strategies that actually work in today's dental landscape
+            - generic [ref=f7e165]:
+              - generic [ref=f7e166]:
+                - generic [ref=f7e167]: 2,200+
+                - generic [ref=f7e168]: Practices Coached
+              - generic [ref=f7e169]:
+                - generic [ref=f7e170]: "188"
+                - generic [ref=f7e171]: Countries Reached
+              - generic [ref=f7e172]:
+                - generic [ref=f7e173]: 470+
+                - generic [ref=f7e174]: Podcast Episodes
+              - generic [ref=f7e175]:
+                - generic [ref=f7e176]: 10,000+
+                - generic [ref=f7e177]: Dentists in Community
+            - generic [ref=f7e179]:
+              - heading "4 Experts. 60 Minutes. Strategies You Can Use Monday." [level=2] [ref=f7e180]
+              - paragraph [ref=f7e181]: 4 dental growth experts break down what's actually working in 2026. Register now — it's free and the replay is included.
+              - link "Register Free Now" [ref=f7e182] [cursor=pointer]:
+                - /url: "#tdFormWrap"
+                - text: Register Free Now
+                - img [ref=f7e183]
+            - contentinfo [ref=f7e185]:
+              - generic [ref=f7e186]:
+                - text: © 2026
+                - link "Thriving Dentist" [ref=f7e187] [cursor=pointer]:
+                  - /url: https://www.thrivingdentist.com
+                - text: — Takacs Learning Center. All rights reserved.
+  - alert [ref=e38]
+  - iframe [ref=e39]:
+    

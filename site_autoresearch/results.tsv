@@ -1,0 +1,11 @@
+timestamp	total_score	status	description
+2026-03-30T11:41:29.661Z	604/650	ok	post-build validation
+2026-03-30T11:42:42.316Z	648/650	ok	route link and asset pass
+2026-03-30T11:43:23.141Z	650/650	ok	home route coverage pass
+2026-03-30T11:59:27.089Z	745/750	ok	events route integration
+2026-03-30T11:59:55.529Z	750/750	ok	homepage internal route pass
+2026-03-30T12:05:34.319Z	750/750	ok	final polish pass
+2026-03-30T12:06:23.076Z	750/750	ok	metadata cleanup pass
+2026-03-30T12:15:09.046Z	750/750	ok	production copy and CTA pass
+2026-03-30T12:31:35.325Z	750/750	ok	zeniva visual sync pass
+2026-03-30T12:33:50.065Z	750/750	ok	zeniva sync final cleanup

@@ -1,0 +1,659 @@
+{
+  "generatedAt": "2026-03-30T12:33:50.065Z",
+  "description": "zeniva sync final cleanup",
+  "reference": {
+    "name": "Dominate Law",
+    "url": "https://marketing254.github.io/dominatelaw-website/",
+    "patterns": [
+      "clear hero promise",
+      "repeated CTA pathways",
+      "host authority",
+      "content as conversion support",
+      "resource-hub taxonomy"
+    ]
+  },
+  "totalScore": 750,
+  "totalPossible": 750,
+  "percent": 100,
+  "globalChecks": [
+    {
+      "file": "app/layout.js",
+      "passed": true,
+      "score": 10,
+      "possible": 10
+    },
+    {
+      "file": "app/components/SiteHeader.js",
+      "passed": true,
+      "score": 10,
+      "possible": 10
+    },
+    {
+      "file": "app/components/SiteFooter.js",
+      "passed": true,
+      "score": 10,
+      "possible": 10
+    },
+    {
+      "file": "app/globals.css",
+      "passed": true,
+      "score": 10,
+      "possible": 10
+    },
+    {
+      "file": "app/lib/site-data.js",
+      "passed": true,
+      "score": 10,
+      "possible": 10
+    }
+  ],
+  "pages": [
+    {
+      "route": "/",
+      "file": "app/page.js",
+      "score": 100,
+      "possible": 100,
+      "percent": 100,
+      "checks": [
+        {
+          "label": "file exists",
+          "passed": true,
+          "score": 10,
+          "possible": 10,
+          "actual": "present",
+          "target": "present"
+        },
+        {
+          "label": "metadata export",
+          "passed": true,
+          "score": 10,
+          "possible": 10,
+          "actual": true,
+          "target": true
+        },
+        {
+          "label": "section count",
+          "passed": true,
+          "score": 20,
+          "possible": 20,
+          "actual": 9,
+          "target": 7
+        },
+        {
+          "label": "button count",
+          "passed": true,
+          "score": 15,
+          "possible": 15,
+          "actual": 13,
+          "target": 7
+        },
+        {
+          "label": "asset usage",
+          "passed": true,
+          "score": 10,
+          "possible": 10,
+          "actual": 4,
+          "target": 4
+        },
+        {
+          "label": "keyword coverage",
+          "passed": true,
+          "score": 25,
+          "possible": 25,
+          "actual": [
+            "veterinary business institute",
+            "podcast",
+            "panel",
+            "webinar",
+            "marketing",
+            "practice"
+          ],
+          "target": [
+            "veterinary business institute",
+            "podcast",
+            "panel",
+            "webinar",
+            "marketing",
+            "practice"
+          ]
+        },
+        {
+          "label": "internal route links",
+          "passed": true,
+          "score": 10,
+          "possible": 10,
+          "actual": [
+            "/about",
+            "/podcast",
+            "/events",
+            "/webinars",
+            "/marketing",
+            "/contact"
+          ],
+          "target": [
+            "/about",
+            "/podcast",
+            "/events",
+            "/webinars",
+            "/marketing",
+            "/contact"
+          ]
+        }
+      ]
+    },
+    {
+      "route": "/about",
+      "file": "app/about/page.js",
+      "score": 100,
+      "possible": 100,
+      "percent": 100,
+      "checks": [
+        {
+          "label": "file exists",
+          "passed": true,
+          "score": 10,
+          "possible": 10,
+          "actual": "present",
+          "target": "present"
+        },
+        {
+          "label": "metadata export",
+          "passed": true,
+          "score": 10,
+          "possible": 10,
+          "actual": true,
+          "target": true
+        },
+        {
+          "label": "section count",
+          "passed": true,
+          "score": 20,
+          "possible": 20,
+          "actual": 5,
+          "target": 4
+        },
+        {
+          "label": "button count",
+          "passed": true,
+          "score": 15,
+          "possible": 15,
+          "actual": 9,
+          "target": 4
+        },
+        {
+          "label": "asset usage",
+          "passed": true,
+          "score": 10,
+          "possible": 10,
+          "actual": 3,
+          "target": 2
+        },
+        {
+          "label": "keyword coverage",
+          "passed": true,
+          "score": 25,
+          "possible": 25,
+          "actual": [
+            "about",
+            "business",
+            "leadership",
+            "marketing",
+            "veterinary"
+          ],
+          "target": [
+            "about",
+            "business",
+            "leadership",
+            "marketing",
+            "veterinary"
+          ]
+        },
+        {
+          "label": "internal route links",
+          "passed": true,
+          "score": 10,
+          "possible": 10,
+          "actual": [
+            "/podcast",
+            "/events",
+            "/webinars",
+            "/marketing",
+            "/contact"
+          ],
+          "target": [
+            "/podcast",
+            "/events",
+            "/webinars",
+            "/marketing",
+            "/contact"
+          ]
+        }
+      ]
+    },
+    {
+      "route": "/podcast",
+      "file": "app/podcast/page.js",
+      "score": 100,
+      "possible": 100,
+      "percent": 100,
+      "checks": [
+        {
+          "label": "file exists",
+          "passed": true,
+          "score": 10,
+          "possible": 10,
+          "actual": "present",
+          "target": "present"
+        },
+        {
+          "label": "metadata export",
+          "passed": true,
+          "score": 10,
+          "possible": 10,
+          "actual": true,
+          "target": true
+        },
+        {
+          "label": "section count",
+          "passed": true,
+          "score": 20,
+          "possible": 20,
+          "actual": 6,
+          "target": 4
+        },
+        {
+          "label": "button count",
+          "passed": true,
+          "score": 15,
+          "possible": 15,
+          "actual": 7,
+          "target": 4
+        },
+        {
+          "label": "asset usage",
+          "passed": true,
+          "score": 10,
+          "possible": 10,
+          "actual": 5,
+          "target": 5
+        },
+        {
+          "label": "keyword coverage",
+          "passed": true,
+          "score": 25,
+          "possible": 25,
+          "actual": [
+            "podcast",
+            "episode",
+            "host",
+            "leadership",
+            "veterinary"
+          ],
+          "target": [
+            "podcast",
+            "episode",
+            "host",
+            "leadership",
+            "veterinary"
+          ]
+        },
+        {
+          "label": "internal route links",
+          "passed": true,
+          "score": 10,
+          "possible": 10,
+          "actual": [
+            "/webinars",
+            "/marketing",
+            "/about"
+          ],
+          "target": [
+            "/webinars",
+            "/marketing",
+            "/about"
+          ]
+        }
+      ]
+    },
+    {
+      "route": "/events",
+      "file": "app/events/page.js",
+      "score": 100,
+      "possible": 100,
+      "percent": 100,
+      "checks": [
+        {
+          "label": "file exists",
+          "passed": true,
+          "score": 10,
+          "possible": 10,
+          "actual": "present",
+          "target": "present"
+        },
+        {
+          "label": "metadata export",
+          "passed": true,
+          "score": 10,
+          "possible": 10,
+          "actual": true,
+          "target": true
+        },
+        {
+          "label": "section count",
+          "passed": true,
+          "score": 20,
+          "possible": 20,
+          "actual": 6,
+          "target": 4
+        },
+        {
+          "label": "button count",
+          "passed": true,
+          "score": 15,
+          "possible": 15,
+          "actual": 9,
+          "target": 5
+        },
+        {
+          "label": "asset usage",
+          "passed": true,
+          "score": 10,
+          "possible": 10,
+          "actual": 4,
+          "target": 4
+        },
+        {
+          "label": "keyword coverage",
+          "passed": true,
+          "score": 25,
+          "possible": 25,
+          "actual": [
+            "event",
+            "panel",
+            "vimeo",
+            "veterinary",
+            "leadership"
+          ],
+          "target": [
+            "event",
+            "panel",
+            "vimeo",
+            "veterinary",
+            "leadership"
+          ]
+        },
+        {
+          "label": "internal route links",
+          "passed": true,
+          "score": 10,
+          "possible": 10,
+          "actual": [
+            "/webinars",
+            "/podcast",
+            "/marketing"
+          ],
+          "target": [
+            "/webinars",
+            "/podcast",
+            "/marketing"
+          ]
+        }
+      ]
+    },
+    {
+      "route": "/webinars",
+      "file": "app/webinars/page.js",
+      "score": 100,
+      "possible": 100,
+      "percent": 100,
+      "checks": [
+        {
+          "label": "file exists",
+          "passed": true,
+          "score": 10,
+          "possible": 10,
+          "actual": "present",
+          "target": "present"
+        },
+        {
+          "label": "metadata export",
+          "passed": true,
+          "score": 10,
+          "possible": 10,
+          "actual": true,
+          "target": true
+        },
+        {
+          "label": "section count",
+          "passed": true,
+          "score": 20,
+          "possible": 20,
+          "actual": 6,
+          "target": 5
+        },
+        {
+          "label": "button count",
+          "passed": true,
+          "score": 15,
+          "possible": 15,
+          "actual": 12,
+          "target": 5
+        },
+        {
+          "label": "asset usage",
+          "passed": true,
+          "score": 10,
+          "possible": 10,
+          "actual": 4,
+          "target": 4
+        },
+        {
+          "label": "keyword coverage",
+          "passed": true,
+          "score": 25,
+          "possible": 25,
+          "actual": [
+            "webinar",
+            "replay",
+            "archive",
+            "practice",
+            "veterinary"
+          ],
+          "target": [
+            "webinar",
+            "replay",
+            "archive",
+            "practice",
+            "veterinary"
+          ]
+        },
+        {
+          "label": "internal route links",
+          "passed": true,
+          "score": 10,
+          "possible": 10,
+          "actual": [
+            "/events",
+            "/marketing",
+            "/contact",
+            "/podcast"
+          ],
+          "target": [
+            "/events",
+            "/marketing",
+            "/contact",
+            "/podcast"
+          ]
+        }
+      ]
+    },
+    {
+      "route": "/marketing",
+      "file": "app/marketing/page.js",
+      "score": 100,
+      "possible": 100,
+      "percent": 100,
+      "checks": [
+        {
+          "label": "file exists",
+          "passed": true,
+          "score": 10,
+          "possible": 10,
+          "actual": "present",
+          "target": "present"
+        },
+        {
+          "label": "metadata export",
+          "passed": true,
+          "score": 10,
+          "possible": 10,
+          "actual": true,
+          "target": true
+        },
+        {
+          "label": "section count",
+          "passed": true,
+          "score": 20,
+          "possible": 20,
+          "actual": 5,
+          "target": 4
+        },
+        {
+          "label": "button count",
+          "passed": true,
+          "score": 15,
+          "possible": 15,
+          "actual": 5,
+          "target": 4
+        },
+        {
+          "label": "asset usage",
+          "passed": true,
+          "score": 10,
+          "possible": 10,
+          "actual": 1,
+          "target": 1
+        },
+        {
+          "label": "keyword coverage",
+          "passed": true,
+          "score": 25,
+          "possible": 25,
+          "actual": [
+            "marketing",
+            "audit",
+            "strategy",
+            "search",
+            "practice"
+          ],
+          "target": [
+            "marketing",
+            "audit",
+            "strategy",
+            "search",
+            "practice"
+          ]
+        },
+        {
+          "label": "internal route links",
+          "passed": true,
+          "score": 10,
+          "possible": 10,
+          "actual": [
+            "/contact"
+          ],
+          "target": [
+            "/contact"
+          ]
+        }
+      ]
+    },
+    {
+      "route": "/contact",
+      "file": "app/contact/page.js",
+      "score": 100,
+      "possible": 100,
+      "percent": 100,
+      "checks": [
+        {
+          "label": "file exists",
+          "passed": true,
+          "score": 10,
+          "possible": 10,
+          "actual": "present",
+          "target": "present"
+        },
+        {
+          "label": "metadata export",
+          "passed": true,
+          "score": 10,
+          "possible": 10,
+          "actual": true,
+          "target": true
+        },
+        {
+          "label": "section count",
+          "passed": true,
+          "score": 20,
+          "possible": 20,
+          "actual": 5,
+          "target": 4
+        },
+        {
+          "label": "button count",
+          "passed": true,
+          "score": 15,
+          "possible": 15,
+          "actual": 8,
+          "target": 5
+        },
+        {
+          "label": "asset usage",
+          "passed": true,
+          "score": 10,
+          "possible": 10,
+          "actual": 1,
+          "target": 1
+        },
+        {
+          "label": "keyword coverage",
+          "passed": true,
+          "score": 25,
+          "possible": 25,
+          "actual": [
+            "contact",
+            "team",
+            "partnership",
+            "podcast",
+            "strategy"
+          ],
+          "target": [
+            "contact",
+            "team",
+            "partnership",
+            "podcast",
+            "strategy"
+          ]
+        },
+        {
+          "label": "internal route links",
+          "passed": true,
+          "score": 10,
+          "possible": 10,
+          "actual": [
+            "/podcast",
+            "/events",
+            "/webinars",
+            "/marketing"
+          ],
+          "target": [
+            "/podcast",
+            "/events",
+            "/webinars",
+            "/marketing"
+          ]
+        }
+      ]
+    }
+  ]
+}
