@@ -1,6 +1,5 @@
 import Link from "next/link";
 import {
-  auditLink,
   episodes,
   eventPanels,
   focusAreas,
@@ -202,9 +201,9 @@ export default function HomePage() {
               <Link className="button button-primary" href="/marketing">
                 Explore Marketing &rarr;
               </Link>
-              <a className="button button-secondary" href={auditLink} target="_blank" rel="noreferrer">
-                Free SEO Audit
-              </a>
+              <Link className="button button-secondary" href="/consultation">
+                Book a Free Consultation
+              </Link>
             </div>
           </div>
           <div className="marketing-seo-image">
@@ -462,7 +461,7 @@ export default function HomePage() {
                 <span>Quick sign-up with your name, practice &amp; email &mdash; then instant free access to every resource.</span>
               </div>
               <div className="button-row" style={{ marginTop: 28 }}>
-                <Link className="button button-primary" href="/resources/hub">
+                <Link className="button button-primary" href="/resources">
                   Explore All Tools &rarr;
                 </Link>
                 <Link className="button button-secondary" href="/community">

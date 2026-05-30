@@ -102,56 +102,24 @@
 .typewriterFrame {
   position: relative;
   display: inline-flex;
-  align-items: center;
+  align-items: baseline;
   width: fit-content;
   max-width: 100%;
-  padding: 0.55rem 1rem 0.6rem;
-  border-radius: 18px;
-  border: 1.5px dashed rgba(47, 107, 69, 0.45);
-  background:
-    linear-gradient(135deg, rgba(255, 255, 255, 0.68), rgba(255, 255, 255, 0.34)),
-    radial-gradient(circle at top left, rgba(47, 107, 69, 0.14), transparent 55%);
-  box-shadow: 0 18px 40px rgba(16, 35, 32, 0.1);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-}
-
-.typewriterFrame::after {
-  content: "";
-  position: absolute;
-  right: -44px;
-  bottom: 12px;
-  width: 34px;
-  height: 14px;
-  border-radius: 999px;
-  background: #102320;
-  box-shadow: 0 10px 18px rgba(16, 35, 32, 0.18);
-}
-
-.typewriterFrame::before {
-  content: "";
-  position: absolute;
-  right: -30px;
-  bottom: 17px;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: var(--green-500);
-  border: 2px solid rgba(255, 255, 255, 0.9);
-  z-index: 1;
 }
 
 .typewriterWord {
   display: inline-flex;
-  align-items: center;
+  align-items: baseline;
   min-width: 1ch;
-  font-family: var(--font-plex-mono), monospace;
-  font-size: clamp(1.9rem, 4vw, 3.8rem);
-  font-weight: 600;
-  line-height: 1;
-  letter-spacing: -0.04em;
+  font-family: var(--font-cormorant), serif;
+  font-style: italic;
+  font-size: inherit;
+  font-weight: 700;
+  line-height: inherit;
+  letter-spacing: -0.01em;
   color: var(--teal-500);
   white-space: nowrap;
+  box-shadow: inset 0 -0.09em 0 rgba(198, 248, 0, 0.65);
 }
 
 .typewriterCursor {
@@ -471,16 +439,10 @@
   .typewriterFrame {
     width: 100%;
     justify-content: center;
-    padding: 0.65rem 0.9rem 0.75rem;
-  }
-
-  .typewriterFrame::after,
-  .typewriterFrame::before {
-    display: none;
   }
 
   .typewriterWord {
-    font-size: clamp(1.45rem, 7vw, 2.35rem);
+    font-size: inherit;
     white-space: normal;
     justify-content: center;
     text-align: center;

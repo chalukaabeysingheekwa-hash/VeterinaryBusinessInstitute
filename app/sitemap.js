@@ -1,12 +1,12 @@
+import { blogPosts } from "./lib/blog-posts";
+import { episodes } from "./lib/site-data";
+
 export const dynamic = "force-static";
 
 export default function sitemap() {
   const baseUrl = process.env.NEXT_PUBLIC_SITE_ORIGIN || "https://www.veterinarybusinessinstitute.com";
-  const siteLastModified = "2026-03-31T00:00:00.000Z";
+  const siteLastModified = "2026-05-31T00:00:00.000Z";
 
-  // In a real application, you might fetch blog posts, webinars, 
-  // or podcast episodes dynamically. For static exports, we define
-  // core routes here or let Next.js generate them if dynamic.
   const coreRoutes = [
     "",
     "/about",
@@ -14,6 +14,7 @@ export default function sitemap() {
     "/podcast",
     "/reviews",
     "/resources",
+    "/blog",
     "/guest-speaker",
     "/community",
     "/marketing",
@@ -27,13 +28,26 @@ export default function sitemap() {
     "/resources/tools",
     "/resources/apps",
     "/resources/faq",
-    "/resources/hub"
   ].map((route) => ({
     url: `${baseUrl}${route}`,
     lastModified: siteLastModified,
-    changeFrequency: route === "" || route === "/podcast" ? "weekly" : "monthly",
+    changeFrequency: route === "" || route === "/podcast" || route === "/blog" ? "weekly" : "monthly",
     priority: route === "" ? 1 : 0.8,
   }));
 
-  return [...coreRoutes];
+  const blogRoutes = blogPosts.map((p) => ({
+    url: `${baseUrl}/blog/${p.slug}`,
+    lastModified: siteLastModified,
+    changeFrequency: "monthly",
+    priority: 0.7,
+  }));
+
+  const episodeRoutes = episodes.map((e) => ({
+    url: `${baseUrl}/podcast/episode-${e.number}`,
+    lastModified: siteLastModified,
+    changeFrequency: "monthly",
+    priority: 0.6,
+  }));
+
+  return [...coreRoutes, ...blogRoutes, ...episodeRoutes];
 }

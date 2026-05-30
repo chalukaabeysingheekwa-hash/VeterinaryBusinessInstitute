@@ -14,11 +14,14 @@ export default function CookieBanner() {
 
   const acceptCookies = () => {
     localStorage.setItem("vbi-cookie-consent", "true");
+    // Notify <Analytics /> so tracking can load immediately, without a reload.
+    window.dispatchEvent(new Event("vbi-consent-change"));
     setShow(false);
   };
 
   const declineCookies = () => {
     localStorage.setItem("vbi-cookie-consent", "declined");
+    window.dispatchEvent(new Event("vbi-consent-change"));
     setShow(false);
   };
 
@@ -30,8 +33,8 @@ export default function CookieBanner() {
       bottom: "20px",
       left: "50%",
       transform: "translateX(-50%)",
-      backgroundColor: "var(--ink-700)",
-      color: "var(--paper)",
+      backgroundColor: "#102320",
+      color: "#ffffff",
       padding: "1rem 1.5rem",
       borderRadius: "12px",
       display: "flex",
@@ -56,7 +59,7 @@ export default function CookieBanner() {
         </button>
         <button 
           onClick={acceptCookies} 
-          style={{ background: "var(--accent)", border: "none", color: "#fff", padding: "0.5rem 1rem", borderRadius: "8px", cursor: "pointer", fontWeight: "600" }}
+          style={{ background: "#2f6b45", border: "none", color: "#fff", padding: "0.5rem 1rem", borderRadius: "8px", cursor: "pointer", fontWeight: "600" }}
         >
           Accept
         </button>

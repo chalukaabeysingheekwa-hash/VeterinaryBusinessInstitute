@@ -9,6 +9,18 @@ import CountdownTimer from "../../../components/CountdownTimer";
 import EventRegistrationForm from "../../../components/EventRegistrationForm";
 import AnimatedCounter from "../../../components/AnimatedCounter";
 
+function speakerInitials(name) {
+  return name
+    .replace(/,.*$/, "")
+    .replace(/^Dr\.\s*/, "")
+    .split(" ")
+    .map((w) => w[0])
+    .filter(Boolean)
+    .slice(0, 2)
+    .join("")
+    .toUpperCase();
+}
+
 export async function generateStaticParams() {
   return registrationEvents.map((e) => ({ slug: e.slug }));
 }
@@ -130,7 +142,13 @@ export default async function EventRegisterPage({ params }) {
             {event.speakers.map((s) => (
               <div key={s.name} className="reg-speaker-card">
                 <div className="reg-speaker-avatar">
-                  <img src={s.image} alt={s.name} width={100} height={100} loading="lazy" />
+                  {s.image ? (
+                    <img src={s.image} alt={s.name} width={100} height={100} loading="lazy" />
+                  ) : (
+                    <span className="reg-speaker-initials" aria-hidden="true">
+                      {speakerInitials(s.name)}
+                    </span>
+                  )}
                 </div>
                 <h3 className="reg-speaker-name">{s.name}</h3>
                 <span className="reg-speaker-role">{s.role}</span>

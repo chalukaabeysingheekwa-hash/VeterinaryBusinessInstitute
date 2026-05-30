@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react";
 import styles from "../community/page.module.css";
+import { submitLead } from "../lib/submit-lead";
 
 export default function NewsletterForm({
   email,
@@ -11,7 +12,7 @@ export default function NewsletterForm({
   dark = false,
 }) {
   const [emailInput, setEmailInput] = useState("");
-  const [submitted, setSubmitted] = useState(false);
+  const [status, setStatus] = useState("idle"); // idle | sending | success | error
 
   const mailtoHref = useMemo(() => {
     const subject = encodeURIComponent("VBI Newsletter Subscription");
@@ -21,12 +22,11 @@ export default function NewsletterForm({
     return `mailto:${email}?subject=${subject}&body=${body}`;
   }, [email, emailInput]);
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
-    setSubmitted(true);
-    // In a real application with a CRM (Mailchimp/ActiveCampaign), 
-    // you would POST to your API route here.
-    window.location.href = mailtoHref;
+    setStatus("sending");
+    const res = await submitLead("newsletter", { email: emailInput });
+    setStatus(res.ok ? "success" : "error");
   }
 
   return (
@@ -48,14 +48,19 @@ export default function NewsletterForm({
              placeholder="practice@example.com"
            />
          </label>
-         <button className="button button-primary" type="submit" style={{ flexShrink: 0 }}>
-           {buttonLabel}
+         <button className="button button-primary" type="submit" style={{ flexShrink: 0 }} disabled={status === "sending"}>
+           {status === "sending" ? "Subscribing…" : buttonLabel}
          </button>
        </form>
 
-       {submitted && (
-         <p style={{ marginTop: "1rem", fontSize: "0.9rem", color: "var(--accent)" }}>
-           Opening email client to confirm subscription. (Hook this to a CRM API later).
+       {status === "success" && (
+         <p style={{ marginTop: "1rem", fontSize: "0.9rem", color: "var(--teal-500)" }}>
+           🎉 You&rsquo;re subscribed! Look out for veterinary business insights in your inbox.
+         </p>
+       )}
+       {status === "error" && (
+         <p style={{ marginTop: "1rem", fontSize: "0.9rem", color: "#c0392b" }}>
+           Something went wrong. Please <a href={mailtoHref}>email us to subscribe</a>.
          </p>
        )}
     </div>

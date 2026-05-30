@@ -2,7 +2,6 @@ import Link from "next/link";
 import { withBasePath } from "../lib/base-path";
 import { pillarIcons } from "../lib/pillar-icons";
 import {
-  auditLink,
   focusAreas,
   homepageMetrics,
   hosts,
@@ -211,55 +210,73 @@ export default function AboutPage() {
               <Link className="button button-primary" href="/marketing">
                 See the Marketing Offer
               </Link>
-              <a className="button button-secondary" href={auditLink} target="_blank" rel="noreferrer">
-                Book a Strategy Meeting
-              </a>
+              <Link className="button button-secondary" href="/consultation">
+                Book a Free Consultation
+              </Link>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ── Practice Management 3-Card Row ── */}
+      {/* ── Founder feature card ── */}
       <section className="section section-muted">
         <div className="container">
           <div className="section-heading section-heading-centered">
-            <span className="eyebrow text-accent">The People Behind the Platform</span>
+            <span className="eyebrow text-accent">Host &amp; Founder</span>
             <h2>
-              Three <em style={{ fontStyle: 'italic', color: '#2e7d5c' }}>strengths</em> that make VBI more useful for modern practices.
+              The person behind the <em style={{ fontStyle: 'italic', color: '#2e7d5c' }}>platform</em>.
             </h2>
           </div>
-          <div className="practice-mgmt-grid">
-            {focusAreas.slice(0, 3).map((item, index) => (
-              <ParallaxCard key={item.title} as="article" className="card practice-mgmt-card" tiltDepth={6}>
-                <div className="practice-mgmt-icon">
-                  {pillarIcons[["users", "briefcase", "trending-up"][index]]}
+          <article className="about-founder">
+            <div className="about-founder-photo">
+              <img src={hosts[0].image} alt={hosts[0].name} />
+            </div>
+            <div className="about-founder-copy">
+              <h3>{hosts[0].name}</h3>
+              <span className="about-founder-role">{hosts[0].role}</span>
+              <div className="about-founder-stats">
+                <div><strong>20+</strong><span>Years in Marketing</span></div>
+                <div><strong>2,200+</strong><span>Practices Coached</span></div>
+                <div><strong>188</strong><span>Countries Reached</span></div>
+              </div>
+              <p>{hosts[0].body}</p>
+              <div className="button-row">
+                <Link className="button button-primary" href="/podcast">
+                  Listen to the Podcast
+                </Link>
+                <a
+                  className="button button-secondary"
+                  href="https://www.linkedin.com/company/veterinary-business-podcast/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Connect on LinkedIn
+                </a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      {/* ── Meet the Team ── */}
+      <section className="section">
+        <div className="container">
+          <div className="section-heading section-heading-centered">
+            <span className="eyebrow text-accent">Meet the Team</span>
+            <h2>
+              The <em style={{ fontStyle: 'italic', color: '#2e7d5c' }}>co-hosts</em> shaping each conversation.
+            </h2>
+          </div>
+          <div className="about-team-grid">
+            {hosts.slice(1).map((member) => (
+              <article className="about-team-card" key={member.name}>
+                <div className="about-team-photo">
+                  <img src={member.image} alt={member.name} loading="lazy" />
                 </div>
-                <h3>{item.title}</h3>
-                <p>{item.body}</p>
-                <div className="practice-mgmt-tags">
-                  {index === 0 && (
-                    <>
-                      <span className="tag-pill">Leadership</span>
-                      <span className="tag-pill">Retention</span>
-                      <span className="tag-pill">Culture</span>
-                    </>
-                  )}
-                  {index === 1 && (
-                    <>
-                      <span className="tag-pill">Staffing</span>
-                      <span className="tag-pill">Workflow</span>
-                      <span className="tag-pill">Onboarding</span>
-                    </>
-                  )}
-                  {index === 2 && (
-                    <>
-                      <span className="tag-pill">SEO</span>
-                      <span className="tag-pill">Local Search</span>
-                      <span className="tag-pill">Growth</span>
-                    </>
-                  )}
-                </div>
-              </ParallaxCard>
+                <h3>{member.name}</h3>
+                <span className="about-team-role">{member.role}</span>
+                <p>{member.body}</p>
+              </article>
             ))}
           </div>
         </div>

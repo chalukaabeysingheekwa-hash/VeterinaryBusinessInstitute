@@ -7,7 +7,6 @@ import ParallaxCard from "../components/ParallaxCard";
 import { withBasePath } from "../lib/base-path";
 import { pillarIcons } from "../lib/pillar-icons";
 import {
-  auditLink,
   contactDetails,
   episodes,
   eventPanels,
@@ -171,9 +170,9 @@ export default function NewsletterPage() {
               <Link className="button button-primary" href="/marketing">
                 Explore Marketing
               </Link>
-              <a className="button button-secondary" href={auditLink} target="_blank" rel="noreferrer">
-                Free SEO Audit
-              </a>
+              <Link className="button button-secondary" href="/consultation">
+                Book a Free Consultation
+              </Link>
             </div>
           </div>
         </div>

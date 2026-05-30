@@ -1,10 +1,8 @@
 import Link from "next/link";
-import { auditLink, focusAreas, servicePillars } from "../lib/site-data";
-import { pillarIcons } from "../lib/pillar-icons";
-import SignalMarquee from "../components/SignalMarquee";
-import ParallaxCard from "../components/ParallaxCard";
 import AnimatedCounter from "../components/AnimatedCounter";
-import AttractButton from "../components/AttractButton";
+import BookingCalendar from "../components/BookingCalendar";
+import SolarIcon from "../components/SolarIcon";
+import { withBasePath } from "../lib/base-path";
 
 export const metadata = {
   title: "Book a Free Marketing Strategy Meeting | Veterinary Business Institute",
@@ -12,49 +10,104 @@ export const metadata = {
     "Schedule a free 60-minute marketing strategy meeting. Our team will invest 4–5 hours preparing a customised plan for your veterinary practice.",
 };
 
-const steps = [
-  { number: "01", label: "Select a date" },
-  { number: "02", label: "Select a time" },
-  { number: "03", label: "Fill in your details" },
-  { number: "04", label: "Confirm your booking" },
+const processSteps = [
+  {
+    number: "1",
+    title: "Submit Your Request",
+    body: "Fill out the short form above with your practice details, location, and biggest marketing challenge. Takes less than 2 minutes.",
+    tag: "Takes ~2 minutes",
+  },
+  {
+    number: "2",
+    title: "We Do the Homework",
+    body: "Our team researches your website, Google rankings, reviews, social presence, and top competitors in your market — before we even meet.",
+    tag: "We do the research",
+  },
+  {
+    number: "3",
+    title: "Your Strategy Session",
+    body: "A 30-minute video call with a senior Ekwa specialist. You'll leave with a clear, actionable marketing roadmap customized for your practice.",
+    tag: "30-min video call",
+  },
 ];
 
-const consultationSignalRows = [
-  [
-    {
-      label: "Strategy Call",
-      title: "60-minute working session",
-      body: "A free, no-commitment strategy meeting with Lila Stone and the Ekwa team built around your practice.",
-    },
-    {
-      label: "Preparation",
-      title: "4 to 5 hours of prep work",
-      body: "The team invests 4 to 5 hours preparing a customised plan before the call ever begins.",
-    },
-    {
-      label: "Deliverable",
-      title: "Practice-specific roadmap",
-      body: "A detailed follow-up report with clear recommendations you can implement right away.",
-    },
-  ],
-  focusAreas.map((item) => ({
-    label: "Focus Area",
-    title: item.title,
-    body: item.body,
-  })),
+const learnPoints = [
+  {
+    title: "Where You're Losing Clients Online",
+    body: "We show you the specific gaps in your digital presence that are costing you new clients right now.",
+  },
+  {
+    title: "Your Exact Keyword Opportunities",
+    body: "The exact searches local pet owners are making that your practice isn't currently ranking for — and how to capture them.",
+  },
+  {
+    title: "How Your Competitors Are Winning",
+    body: "A real breakdown of what the top-ranked practices in your area are doing — and how to outperform them.",
+  },
+  {
+    title: "Your 90-Day Quick-Win Plan",
+    body: "Three to five specific actions you can take in the next 90 days to start booking more appointments.",
+  },
+  {
+    title: "Long-Term Growth Strategy",
+    body: "A 12-month marketing roadmap that builds sustainable client flow and practice authority in your local market.",
+  },
 ];
 
-const reverseMarqueeItems = [
-  "Free Strategy Call",
-  "No Commitments",
-  "Custom Plan",
-  "Local SEO",
-  "Growth Roadmap",
-  "Veterinary Expertise",
-  "VIP Team",
-  "Real Results",
-  "Clear Next Steps",
-  "Actionable Insight",
+const ekwaPoints = [
+  "Exclusively focused on healthcare and veterinary marketing",
+  "No long-term contracts required",
+  "A dedicated account manager for every practice",
+  "Transparent reporting — you always know what we're doing",
+  "A proven track record across thousands of campaigns",
+  "Full-service: SEO, PPC, social, web design & content",
+];
+
+const consultTestimonials = [
+  {
+    quote:
+      "The strategy session was eye-opening. They showed me exactly which searches I wasn't ranking for and why. Within six months of following their plan, our new client bookings doubled.",
+    name: "Dr. Sarah M.",
+    role: "Practice Owner, Austin TX",
+    initials: "SM",
+  },
+  {
+    quote:
+      "I was skeptical of 'free consultations,' but this was different. No sales pitch — just real, actionable insight I could put to work the very next day.",
+    name: "Dr. Linda K.",
+    role: "Clinic Director, Denver CO",
+    initials: "LK",
+  },
+  {
+    quote:
+      "Ekwa's team genuinely understood the veterinary market. They came prepared, knew our area, and identified three growth opportunities we'd completely missed.",
+    name: "Dr. Michael T.",
+    role: "Managing Partner, Columbus OH",
+    initials: "MT",
+  },
+];
+
+const heroPoints = [
+  {
+    icon: "globe",
+    title: "Full Digital Presence Audit",
+    body: "We review your website, local SEO, Google Business Profile, reviews, and social media presence — and tell you exactly what's working and what isn't.",
+  },
+  {
+    icon: "target",
+    title: "Competitive Analysis",
+    body: "We analyze your top local competitors — what keywords they rank for, how they convert, and where you have the opportunity to outrank them.",
+  },
+  {
+    icon: "barChart",
+    title: "Customized Growth Roadmap",
+    body: "You leave with a prioritized, actionable marketing plan specific to your practice area, geography, and growth stage — not a generic template.",
+  },
+  {
+    icon: "checkCircle",
+    title: "No Sales Pitch. No Pressure.",
+    body: "This is a genuine strategy session. If we're a good fit, great — but there's no obligation to work with us and no hard sell. Just honest, expert advice.",
+  },
 ];
 
 export default function ConsultationPage() {
@@ -64,280 +117,218 @@ export default function ConsultationPage() {
       <section className="consult-page-hero">
         <div className="about-vbi-ghost-word" aria-hidden="true">STRATEGY</div>
         <div className="container">
-          <div className="consult-hero-inner">
-            <span className="consult-hero-pill">Free &middot; 60 Minutes &middot; No Commitments</span>
-            <h1 className="consult-hero-h1">
-              Book a Free <em>Marketing Strategy</em> <span className="outline-txt">Meeting.</span>
-            </h1>
-            <p className="consult-hero-sub">
-              Learn how you can leverage digital marketing to grow your
-              veterinary practice — at no cost, with no commitments attached.
-            </p>
-            <div className="consult-hero-badge">
-              <div className="consult-badge-left">
-                <span className="consult-badge-num">4–5</span>
-                <span className="consult-badge-unit">hours</span>
-              </div>
-              <p className="consult-badge-text">
-                Lila Stone &amp; her team invest 4–5 hours preparing a
-                customised marketing plan for your practice <strong>before</strong> the call.
+          <div className="consult-hero-grid">
+            <div className="consult-hero-inner">
+              <span className="consult-hero-pill">Free &middot; 60 Minutes &middot; No Commitments</span>
+              <h1 className="consult-hero-h1">
+                The only <em>strategy meeting</em> needed for your <span className="outline-txt">veterinary practice.</span>
+                <span className="free-pop" role="img" aria-label="Totally free">
+                  <span className="free-pop-spark" aria-hidden="true">&#10022;</span>
+                  100% Free
+                </span>
+              </h1>
+              <p className="consult-hero-sub">
+                Learn how you can leverage digital marketing to grow your
+                veterinary practice — at no cost, with no commitments attached.
               </p>
-            </div>
-            <AttractButton href={auditLink}>
-              Book Your Free Meeting
-            </AttractButton>
-          </div>
-        </div>
-      </section>
-
-      {/* ── Signal Marquee ── */}
-      <SignalMarquee
-        heading="What a veterinary strategy conversation with VBI actually delivers."
-        rows={consultationSignalRows}
-      />
-
-      {/* ── Ghost Text Stats ── */}
-      <section className="section section-stats-ghost">
-        <div className="ghost-text" aria-hidden="true">PLAN</div>
-        <div className="container stats-ghost-grid">
-          <div className="stats-ghost-counters">
-            <div className="ghost-counter-item">
-              <AnimatedCounter end={60} />
-              <p>Minutes of focused strategy time with Lila and the Ekwa team</p>
-            </div>
-            <div className="ghost-counter-item">
-              <AnimatedCounter end={5} suffix="h" />
-              <p>Hours invested preparing your customised plan before the meeting</p>
-            </div>
-            <div className="ghost-counter-item">
-              <AnimatedCounter end={16000} suffix="+" duration={2500} />
-              <p>Positive testimonials across the Ekwa marketing ecosystem</p>
-            </div>
-          </div>
-          <div className="stats-ghost-copy">
-            <span className="eyebrow text-accent">Built For Practice Owners</span>
-            <h2>A conversation shaped by your practice, not a sales pitch.</h2>
-            <p>
-              The team reviews your visibility, competition, and growth opportunities before the
-              meeting so the hour you spend together is practical, specific, and immediately usable.
-            </p>
-            <div className="button-row">
-              <AttractButton href={auditLink}>
-                Free Strategy Call
-              </AttractButton>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── What You'll Get (marketing-seo-split pattern) ── */}
-      <section className="consult-section">
-        <div className="container consult-split">
-
-          {/* Left — value props using marketing-seo-list */}
-          <div className="consult-value marketing-seo-copy">
-            <span className="eyebrow text-accent">What You&rsquo;ll Get</span>
-            <h2 className="consult-h2">A plan built around <em>your practice.</em></h2>
-            <p className="consult-body">
-              Join Lila Stone, Marketing Strategy Advisor at Ekwa Marketing, for
-              an informative 60-minute session. Lila and her team will invest 4
-              to 5 hours prior to your meeting to develop a customised marketing
-              plan tailored specifically to your veterinary practice.
-            </p>
-
-            <ul className="marketing-seo-list">
-              <li>
-                <div className="marketing-seo-check" aria-hidden="true">&#10003;</div>
-                <div>
-                  <strong>Free 60-Minute Strategy Call</strong>
-                  <span>A focused, no-commitment working session with Lila Stone and the Ekwa team.</span>
+              <div className="consult-hero-badge">
+                <div className="consult-badge-left">
+                  <span className="consult-badge-num">4–5</span>
+                  <span className="consult-badge-unit">hours</span>
                 </div>
-              </li>
-              <li>
-                <div className="marketing-seo-check" aria-hidden="true">&#10003;</div>
-                <div>
-                  <strong>Custom Marketing Audit</strong>
-                  <span>4&ndash;5 hours of prep work reviewing your website, rankings, reputation, and local competition.</span>
-                </div>
-              </li>
-              <li>
-                <div className="marketing-seo-check" aria-hidden="true">&#10003;</div>
-                <div>
-                  <strong>Clear Next Steps</strong>
-                  <span>Specific, prioritized recommendations you can implement in your practice right away.</span>
-                </div>
-              </li>
-              <li>
-                <div className="marketing-seo-check" aria-hidden="true">&#10003;</div>
-                <div>
-                  <strong>Follow-Up Roadmap Report</strong>
-                  <span>A detailed written report after the call with the full plan &mdash; yours to keep, no strings attached.</span>
-                </div>
-              </li>
-            </ul>
-
-            <div className="consult-promise">
-              <strong>After the meeting</strong>, Lila will follow up with a
-              detailed report that includes the full plan &mdash; so you can implement
-              these recommendations in your practice right away.
-            </div>
-          </div>
-
-          {/* Right — booking card */}
-          <div className="consult-booking-wrap">
-            <div className="consult-booking-card">
-              <div className="consult-booking-header">
-                <span className="consult-booking-tag">How to Book</span>
+                <p className="consult-badge-text">
+                  Lila Stone &amp; her team invest 4–5 hours preparing a
+                  customised marketing plan for your practice <strong>before</strong> the call.
+                </p>
               </div>
-              <div className="consult-steps-grid">
-                {steps.map((s) => (
-                  <div className="consult-step" key={s.number}>
-                    <span className="consult-step-num">{s.number}</span>
-                    <span className="consult-step-label">{s.label}</span>
-                  </div>
+
+              <ul className="consult-hero-points">
+                {heroPoints.map((point) => (
+                  <li key={point.title}>
+                    <span className="consult-hero-point-icon" aria-hidden="true">
+                      <SolarIcon name={point.icon} size={18} />
+                    </span>
+                    <div className="consult-hero-point-text">
+                      <strong>{point.title}</strong>
+                      <span>{point.body}</span>
+                    </div>
+                  </li>
                 ))}
-              </div>
-              <div className="consult-booking-divider" />
-              <p className="consult-booking-desc">
-                Click below to open the scheduling calendar. Pick a slot that
-                works for you and you&rsquo;ll receive a confirmation instantly.
-              </p>
-              <a
-                className="button button-primary consult-booking-btn"
-                href={auditLink}
-                target="_blank"
-                rel="noreferrer"
-              >
-                Open Scheduling Calendar &rarr;
-              </a>
-              <p className="consult-booking-note">
-                This invaluable opportunity will empower you to enhance your
-                online presence and attract a steady stream of new clients.
-                Schedule your meeting today!
-              </p>
+              </ul>
             </div>
+
+            <BookingCalendar />
           </div>
         </div>
       </section>
 
-      {/* ── 8-Pillar Grid ── */}
-      <section className="section section-muted">
+      {/* ── 3-Step Process ── */}
+      <section className="section consult-process">
         <div className="container">
-          <div className="section-heading section-heading-centered">
-            <span className="eyebrow text-accent">What We Can Discuss</span>
-            <h2>Eight areas we can unpack in your strategy call.</h2>
+          <div className="consult-process-head">
+            <span className="eyebrow text-accent">Simple 3-Step Process</span>
+            <h2 className="consult-process-title">From Request to Roadmap in 48 Hours</h2>
+            <p className="consult-process-sub">
+              We make it easy. Book in under 2 minutes, then let us do the
+              research. You show up ready to grow.
+            </p>
           </div>
-          <div className="pillars-grid">
-            {servicePillars.map((item) => (
-              <Link key={item.title} href={item.href} style={{ display: "block" }}>
-                <ParallaxCard as="div" className="card pillar-card" tiltDepth={6}>
-                  <div className="pillar-icon">{pillarIcons[item.icon]}</div>
-                  <h3>{item.title}</h3>
-                  <p>{item.body}</p>
-                  <span className="pillar-arrow">&rarr;</span>
-                </ParallaxCard>
-              </Link>
+          <div className="consult-process-grid">
+            {processSteps.map((step) => (
+              <div className="consult-process-card" key={step.number}>
+                <span className="consult-process-num">{step.number}</span>
+                <h3>{step.title}</h3>
+                <p>{step.body}</p>
+                <span className="consult-process-tag">
+                  <span aria-hidden="true">&rarr;</span> {step.tag}
+                </span>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ── 4-Card Dark Vettech ── */}
-      <section className="section section-dark section-vettech">
+      {/* ── What You'll Learn ── */}
+      <section className="section consult-learn">
         <div className="container">
-          <div className="section-heading section-heading-centered">
-            <span className="eyebrow text-accent">Systems We Review</span>
-            <h2 style={{ color: "rgba(255,255,255,0.95)" }}>
-              The digital systems behind every strategy conversation.
-            </h2>
-          </div>
-          <div className="vettech-grid">
-            <article className="vettech-card">
-              <div className="vettech-icon">{pillarIcons.monitor}</div>
-              <h3>Website &amp; Presence</h3>
-              <p>How your site currently performs for visibility, mobile, and conversion in your local market.</p>
-            </article>
-            <article className="vettech-card">
-              <div className="vettech-icon">{pillarIcons["bar-chart"]}</div>
-              <h3>Analytics &amp; Tracking</h3>
-              <p>What the numbers say about your client acquisition, ranking trends, and marketing ROI.</p>
-            </article>
-            <article className="vettech-card">
-              <div className="vettech-icon">{pillarIcons.target}</div>
-              <h3>Local Search Landscape</h3>
-              <p>Who you are competing with in your geography and where the clearest visibility gaps exist.</p>
-            </article>
-            <article className="vettech-card">
-              <div className="vettech-icon">{pillarIcons.shield}</div>
-              <h3>Reputation &amp; Trust</h3>
-              <p>How your review profile and reputation influence conversion from first impression to booking.</p>
-            </article>
+          <div className="consult-learn-grid">
+            <div className="consult-learn-media">
+              <div className="consult-learn-image">
+                <img
+                  src={withBasePath("/assets/about-team.jpg")}
+                  alt="Veterinarian holding a cat during a check-up"
+                />
+              </div>
+              <div className="consult-learn-badge">
+                <span className="consult-learn-badge-icon" aria-hidden="true">
+                  <SolarIcon name="checkCircle" size={20} />
+                </span>
+                <div className="consult-learn-badge-text">
+                  <strong>Personalized to Your Practice</strong>
+                  <span>Not a generic template</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="consult-learn-content">
+              <span className="eyebrow text-accent">What&rsquo;s Covered</span>
+              <h2 className="consult-learn-title">What You&rsquo;ll Learn in Your Session</h2>
+              <ul className="consult-learn-list">
+                {learnPoints.map((point) => (
+                  <li key={point.title}>
+                    <span className="consult-learn-check" aria-hidden="true">
+                      <SolarIcon name="checkCircle" size={18} />
+                    </span>
+                    <div>
+                      <strong>{point.title}</strong>
+                      <span>{point.body}</span>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* ── Reverse Marquee ── */}
-      <div className="reverse-marquee-band">
-        <div className="reverse-marquee-track">
-          {[...reverseMarqueeItems, ...reverseMarqueeItems].map((item, i) => (
-            <span key={i} className="reverse-marquee-item">
-              {item}
-              <span className="reverse-marquee-dot" />
-            </span>
-          ))}
-        </div>
-      </div>
-
-      {/* ── Contact strip (kept) ── */}
-      <section className="consult-contact-section">
+      {/* ── Credibility bar + Testimonials ── */}
+      <section className="section consult-proof">
         <div className="container">
-          <p className="consult-contact-heading">Have a question?</p>
-          <div className="consult-contact-grid">
-            <a className="consult-contact-card" href="tel:+18335231845">
-              <span className="consult-contact-icon-wrap">
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M2 3.5C2 2.67 2.67 2 3.5 2H6.6C6.95 2 7.26 2.22 7.38 2.55L8.62 5.89C8.72 6.16 8.66 6.47 8.46 6.68L6.94 8.43C7.95 10.55 9.45 12.05 11.57 13.06L13.32 11.54C13.53 11.34 13.84 11.28 14.11 11.38L17.45 12.62C17.78 12.74 18 13.05 18 13.4V16.5C18 17.33 17.33 18 16.5 18C8.5 18 2 11.5 2 3.5Z" stroke="currentColor" strokeWidth="1.5" fill="none"/></svg>
+          <div className="consult-proof-bar">
+            <div className="consult-proof-stat consult-proof-brand">
+              <span className="consult-proof-brand-title">
+                Veterinary Practices
+                <span className="consult-proof-brand-check" aria-hidden="true">
+                  <SolarIcon name="checkCircle" size={18} />
+                </span>
               </span>
-              <span className="consult-contact-label">(833) 523-1845</span>
-            </a>
-            <a className="consult-contact-card" href="tel:+12133251745">
-              <span className="consult-contact-icon-wrap">
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M2 3.5C2 2.67 2.67 2 3.5 2H6.6C6.95 2 7.26 2.22 7.38 2.55L8.62 5.89C8.72 6.16 8.66 6.47 8.46 6.68L6.94 8.43C7.95 10.55 9.45 12.05 11.57 13.06L13.32 11.54C13.53 11.34 13.84 11.28 14.11 11.38L17.45 12.62C17.78 12.74 18 13.05 18 13.4V16.5C18 17.33 17.33 18 16.5 18C8.5 18 2 11.5 2 3.5Z" stroke="currentColor" strokeWidth="1.5" fill="none"/></svg>
+              <span className="consult-proof-label">Helped by the Ekwa team</span>
+            </div>
+            <div className="consult-proof-stat">
+              <span className="consult-proof-num">
+                <AnimatedCounter end={98} suffix="%" />
               </span>
-              <span className="consult-contact-label">(213) 325-1745</span>
-            </a>
-            <a className="consult-contact-card" href="mailto:team@veterinarybusinessinstitute.com">
-              <span className="consult-contact-icon-wrap">
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="2" y="4" width="16" height="12" rx="2" stroke="currentColor" strokeWidth="1.5" fill="none"/><path d="M2 6L10 11L18 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/></svg>
+              <span className="consult-proof-label">Client Satisfaction Rate</span>
+            </div>
+            <div className="consult-proof-stat">
+              <span className="consult-proof-num">4.9<span className="consult-proof-star">&#9733;</span></span>
+              <span className="consult-proof-label">Average Review Score</span>
+            </div>
+            <div className="consult-proof-stat">
+              <span className="consult-proof-num">
+                <AnimatedCounter end={16} suffix="+" />
               </span>
-              <span className="consult-contact-label">team@veterinarybusinessinstitute.com</span>
-            </a>
+              <span className="consult-proof-label">Years of Marketing Experience</span>
+            </div>
+          </div>
+
+          <div className="consult-proof-grid">
+            {consultTestimonials.map((t) => (
+              <figure className="consult-proof-card" key={t.name}>
+                <div className="consult-proof-stars" aria-label="5 out of 5 stars">
+                  {"★★★★★"}
+                </div>
+                <blockquote>&ldquo;{t.quote}&rdquo;</blockquote>
+                <figcaption className="consult-proof-author">
+                  <span className="consult-proof-avatar" aria-hidden="true">{t.initials}</span>
+                  <span className="consult-proof-author-text">
+                    <strong>{t.name}</strong>
+                    <span>{t.role}</span>
+                  </span>
+                </figcaption>
+              </figure>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* ── Final CTA ── */}
-      <section className="section section-final-cta">
-        <div className="ghost-text ghost-text-cta" aria-hidden="true">GROWTH</div>
-        <div className="container final-cta-inner">
-          <div className="final-cta-copy">
-            <span className="eyebrow text-accent">Ready to Grow?</span>
-            <h2 className="final-cta-heading">
-              Stop Leaving Growth<br />
-              on the <em>Table.</em>
-            </h2>
-            <p className="final-cta-sub">
-              Book your free 30-minute strategy call. We&apos;ll audit your current marketing,
-              show you exactly what&apos;s costing you new clients, and map out a clear plan to
-              fix it &mdash; at no charge, with no commitments.
-            </p>
-          </div>
-          <div className="final-cta-buttons">
-            <AttractButton href="/consultation">
-              Book Free Strategy Call
-            </AttractButton>
-            <Link className="button button-secondary button-dark" href="/contact">
-              Ask a Question First
-            </Link>
+      {/* ── The Team Behind (Powered by Ekwa) ── */}
+      <section className="section consult-team">
+        <div className="container">
+          <div className="consult-team-grid">
+            <div className="consult-team-content">
+              <span className="eyebrow text-accent">Who We Are</span>
+              <h2 className="consult-team-title">
+                The Team Behind <em>Your Growth.</em>
+              </h2>
+              <p className="consult-team-poweredby">
+                <span>Powered by</span>
+                <strong>Ekwa Marketing</strong>
+              </p>
+              <p className="consult-team-body">
+                Ekwa Marketing is a specialized digital marketing agency dedicated to
+                veterinary practices. With over 16 years of experience, we&rsquo;ve helped
+                practices across North America build dominant online presences, generate
+                consistent client flow, and grow profitable, thriving clinics.
+              </p>
+              <ul className="consult-team-list">
+                {ekwaPoints.map((point) => (
+                  <li key={point}>
+                    <span className="consult-team-check" aria-hidden="true">
+                      <SolarIcon name="checkCircle" size={18} />
+                    </span>
+                    <span>{point}</span>
+                  </li>
+                ))}
+              </ul>
+              <div className="consult-team-buttons">
+                <Link href="/about" className="button button-primary">
+                  Learn More About Ekwa
+                </Link>
+                <Link href="/case-studies" className="button button-secondary">
+                  Read Client Reviews
+                </Link>
+              </div>
+            </div>
+
+            <div className="consult-team-media">
+              <div className="consult-team-image">
+                <img
+                  src={withBasePath("/assets/about-speaker.jpg")}
+                  alt="Veterinary professional examining a dog during a check-up"
+                />
+              </div>
+            </div>
           </div>
         </div>
       </section>

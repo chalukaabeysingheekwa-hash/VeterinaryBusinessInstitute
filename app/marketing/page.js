@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { withBasePath } from "../lib/base-path";
 import {
-  auditLink,
   focusAreas,
   servicePillars,
   marketingPageLink,
@@ -124,9 +123,9 @@ export default function MarketingPage() {
               <AttractButton href="/consultation">
                 Free Strategy Call
               </AttractButton>
-              <a className="button button-secondary" href={auditLink} target="_blank" rel="noreferrer">
-                Request the Audit
-              </a>
+              <Link className="button button-secondary" href="/consultation">
+                Book a Free Consultation
+              </Link>
             </div>
           </div>
         </div>
@@ -176,9 +175,9 @@ export default function MarketingPage() {
               <AttractButton href="/consultation">
                 Explore Marketing &rarr;
               </AttractButton>
-              <a className="button button-secondary" href={auditLink} target="_blank" rel="noreferrer">
-                Free SEO Audit
-              </a>
+              <Link className="button button-secondary" href="/consultation">
+                Book a Free Consultation
+              </Link>
             </div>
           </div>
           <div className="marketing-seo-image">

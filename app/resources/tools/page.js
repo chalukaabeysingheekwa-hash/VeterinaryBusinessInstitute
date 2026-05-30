@@ -1,44 +1,44 @@
 import Link from "next/link";
-import { auditLink } from "../../lib/site-data";
+import ResourceUnlockModal from "../../components/ResourceUnlockModal";
+import VetCalculators from "../../components/VetCalculators";
 
 export const metadata = {
-  title: "Tools | Veterinary Business Institute",
-  description: "Veterinary practice growth calculators, operations templates, and strategic tools.",
+  title: "Free Veterinary Calculators & Tools | Veterinary Business Institute",
+  description:
+    "8 free, instant veterinary practice calculators — practice valuation, turnover cost, client lifetime value, marketing ROI, wellness pricing, no-show loss, and new-hire payback. No spreadsheets required.",
 };
 
-const vbiTools = [
-  {
-    title: "Practice Valuation Calculator",
-    label: "Financial Health",
-    description: "A secure, offline-friendly tool to estimate multiple-based valuation targets and growth required for your exit strategy.",
-  },
-  {
-    title: "Retention Cost Estimator",
-    label: "Team & Culture",
-    description: "Calculate the hard costs of turnover to build a stronger case for culture and associate retention programs.",
-  },
-  {
-    title: "Marketing ROI Forecaster",
-    label: "Visibility",
-    description: "Map out the client lifetime value (CLV) against local SEO and marketing spend to justify new patient acquisition costs.",
-  }
+const heroStats = [
+  { value: "8", label: "Free Calculators" },
+  { value: "Instant", label: "Results, No Spreadsheets" },
+  { value: "100%", label: "Free to Use" },
 ];
 
 export default function ToolsPage() {
   return (
     <>
+      <ResourceUnlockModal />
+
       <section className="page-hero">
         <div className="container hero-grid">
           <div className="hero-copy">
             <span className="eyebrow text-accent">Resources</span>
             <h1>
-              Veterinary Practice <em>Tools.</em>
+              Veterinary Practice <em>Calculators.</em>
             </h1>
             <p className="hero-lead">
-              Move from theory to math. Use these calculators and strategy 
-              frameworks to gain clarity on your practice's financial health, 
-              staffing models, and marketing ROI.
+              Move from theory to math. Eight instant calculators to gain clarity on your
+              practice&rsquo;s valuation, staffing economics, marketing ROI, and the numbers
+              that drive sustainable growth — right here in your browser.
             </p>
+            <div className="tools-hero-stats">
+              {heroStats.map((s) => (
+                <div className="tools-hero-stat" key={s.label}>
+                  <span className="tools-hero-stat-value">{s.value}</span>
+                  <span className="tools-hero-stat-label">{s.label}</span>
+                </div>
+              ))}
+            </div>
             <div className="button-row">
               <Link className="button button-secondary" href="/resources">
                 Back to Resources
@@ -49,31 +49,25 @@ export default function ToolsPage() {
       </section>
 
       <section className="section">
-        <div className="container grid-three">
-          {vbiTools.map(tool => (
-            <article className="card" key={tool.title}>
-              <span className="card-label">{tool.label}</span>
-              <h3>{tool.title}</h3>
-              <p>{tool.description}</p>
-              <Link href="/contact" className="button button-secondary" style={{ marginTop: "1rem", display: "inline-block" }}>
-                Request Access
-              </Link>
-            </article>
-          ))}
+        <div className="container">
+          <VetCalculators />
         </div>
       </section>
-      
+
       <section className="section section-muted">
         <div className="container page-cta">
           <div>
-             <span className="eyebrow text-accent">Next Step</span>
-             <h2>Do you need help analyzing your numbers?</h2>
-             <p>Our VBI marketing and strategy team can help audit your current performance.</p>
+            <span className="eyebrow text-accent">Next Step</span>
+            <h2>Want help turning these numbers into a plan?</h2>
+            <p>
+              Our VBI marketing and strategy team can audit your current performance and build a
+              tailored growth plan around the metrics that matter most to your practice.
+            </p>
           </div>
           <div className="cta-actions">
-            <a href={auditLink} className="button button-primary" target="_blank" rel="noreferrer">
-              Ask for an Audit
-            </a>
+            <Link href="/consultation" className="button button-primary">
+              Book a Free Consultation
+            </Link>
           </div>
         </div>
       </section>

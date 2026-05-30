@@ -2,20 +2,19 @@
 
 import { useState } from "react";
 import { withBasePath } from "../lib/base-path";
+import { trackEvent } from "../lib/analytics";
+import { submitLead } from "../lib/submit-lead";
 
 export default function LeadMagnetForm({ title }) {
   const [email, setEmail] = useState("");
   const [submitted, setSubmitted] = useState(false);
 
-  // In a real execution, submitting this form would POST the email to Mailchimp
-  // or Zapier, and trigger an automated delivery sequence to their inbox.
-  // We're simulating the frontend validation and UI reveal here.
-
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (email.includes("@")) {
+      trackEvent("form_submit", { form_name: "lead_magnet" });
+      submitLead("lead_magnet", { email, asset: title });
       setSubmitted(true);
-      // Optional: Add gtag analytics event here for conversion tracking
     }
   };
 

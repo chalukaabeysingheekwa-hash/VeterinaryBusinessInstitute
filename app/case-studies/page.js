@@ -6,7 +6,6 @@ import ParallaxCard from "../components/ParallaxCard";
 import { withBasePath } from "../lib/base-path";
 import { pillarIcons } from "../lib/pillar-icons";
 import {
-  auditLink,
   episodes,
   eventPanels,
   focusAreas,
@@ -195,9 +194,9 @@ export default function CaseStudiesPage() {
               <Link className="button button-primary" href="/marketing">
                 Explore Marketing
               </Link>
-              <a className="button button-secondary" href={auditLink} target="_blank" rel="noreferrer">
-                Free SEO Audit
-              </a>
+              <Link className="button button-secondary" href="/consultation">
+                Book a Free Consultation
+              </Link>
             </div>
           </div>
         </div>
@@ -309,9 +308,9 @@ export default function CaseStudiesPage() {
             <AttractButton href="/consultation">
               Book Free Strategy Call
             </AttractButton>
-            <a className="button button-secondary button-dark" href={auditLink} target="_blank" rel="noreferrer">
-              Start Your Visibility Audit
-            </a>
+            <Link className="button button-secondary button-dark" href="/consultation">
+              Book a Free Consultation
+            </Link>
           </div>
         </div>
       </section>

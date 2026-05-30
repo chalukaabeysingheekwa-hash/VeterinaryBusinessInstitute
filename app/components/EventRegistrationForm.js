@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 
 export default function EventRegistrationForm({ eventSlug, eventTitle }) {
-  const [form, setForm] = useState({ firstName: "", lastName: "", email: "", mobile: "" });
+  const [form, setForm] = useState({ firstName: "", lastName: "", email: "", mobile: "", questions: "" });
   const [partner, setPartner] = useState("");
   const [honeypot, setHoneypot] = useState("");
   const [loadTime] = useState(() => Date.now());
@@ -158,6 +158,18 @@ export default function EventRegistrationForm({ eventSlug, eventTitle }) {
             required
             placeholder="+1 (555) 123-4567"
             value={form.mobile}
+            onChange={handleChange}
+          />
+        </div>
+
+        <div className="reg-field">
+          <label htmlFor="reg-questions">What questions do you have? (optional)</label>
+          <textarea
+            id="reg-questions"
+            name="questions"
+            rows={3}
+            placeholder="Anything you'd like the panel to cover?"
+            value={form.questions}
             onChange={handleChange}
           />
         </div>

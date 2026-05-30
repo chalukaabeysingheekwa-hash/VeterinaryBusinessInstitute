@@ -1,12 +1,14 @@
 "use client";
 
 import { useState } from "react";
+import { trackEvent } from "../lib/analytics";
 
 export default function WebinarRegistrationForm() {
   const [submitted, setSubmitted] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    trackEvent("form_submit", { form_name: "webinar_registration" });
     setSubmitted(true);
   };
 
@@ -38,7 +40,7 @@ export default function WebinarRegistrationForm() {
 
       <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
         <label style={{ fontSize: "0.85rem", fontWeight: "600" }}>Role at Practice *</label>
-        <select required style={{ padding: "0.75rem", borderRadius: "8px", border: "1px solid var(--border)", backgroundColor: "white" }}>
+        <select required aria-label="Role at Practice" style={{ padding: "0.75rem", borderRadius: "8px", border: "1px solid var(--border)", backgroundColor: "white" }}>
           <option value="">Select your role</option>
           <option value="owner">Practice Owner / Partner</option>
           <option value="manager">Practice Manager</option>

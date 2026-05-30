@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { auditLink } from "../lib/site-data";
 
 export const metadata = {
   title: "Thank You | Veterinary Business Institute",
@@ -19,10 +18,9 @@ const nextSteps = [
   },
   {
     title: "3. Review your market positioning",
-    body: "If you're ready for aggressive growth, take a look at our marketing audit strategy led by Ekwa.",
-    actionLink: auditLink,
-    actionText: "Learn about the Audit",
-    external: true
+    body: "If you're ready for aggressive growth, book a free strategy consultation with our team.",
+    actionLink: "/consultation",
+    actionText: "Book a Free Consultation"
   }
 ];
 

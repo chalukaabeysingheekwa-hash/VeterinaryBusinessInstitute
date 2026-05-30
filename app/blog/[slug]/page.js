@@ -1,69 +1,130 @@
 import Link from "next/link";
-import { auditLink } from "../../lib/site-data";
+import { blogPosts } from "../../lib/blog-posts";
 
 export async function generateStaticParams() {
-  return [
-    { slug: "post-1" },
-    { slug: "post-2" },
-    { slug: "post-3" },
-    { slug: "post-4" },
-  ];
+  return blogPosts.map((p) => ({ slug: p.slug }));
+}
+
+export async function generateMetadata({ params }) {
+  const { slug } = await params;
+  const post = blogPosts.find((p) => p.slug === slug);
+  if (!post) return { title: "Article | Veterinary Business Institute" };
+  return {
+    title: `${post.title} | VBI Blog`,
+    description: post.metaDescription || post.excerpt,
+    openGraph: {
+      title: post.title,
+      description: post.metaDescription || post.excerpt,
+      type: "article",
+    },
+  };
 }
 
 export default async function BlogPostPage({ params }) {
   const { slug } = await params;
+  const idx = blogPosts.findIndex((p) => p.slug === slug);
+  const post = idx >= 0 ? blogPosts[idx] : blogPosts[0];
+  const prev = idx > 0 ? blogPosts[idx - 1] : null;
+  const next = idx >= 0 && idx < blogPosts.length - 1 ? blogPosts[idx + 1] : null;
 
   return (
     <>
-      <section className="page-hero" style={{ paddingBottom: "2rem" }}>
-        <div className="container">
-          <Link href="/blog" className="text-accent" style={{ textDecoration: "underline", fontSize: "0.9rem" }}>
+      <section className="page-hero blogpost-hero">
+        <div className="container blogpost-head">
+          <Link href="/blog" className="blogpost-back">
             &larr; Back to all articles
           </Link>
-          <h1 style={{ marginTop: "1rem" }}>
-            The Architecture of a Scalable Veterinary Practice: {slug}
-          </h1>
-          <p className="muted-text" style={{ marginTop: "0.5rem" }}>
-            By Naren Arulrajah • 5 min read
+          <span className="eyebrow text-accent">{post.category}</span>
+          <h1>{post.title}</h1>
+          <p className="blogpost-meta">
+            {post.date} · {post.readMinutes} min read
           </p>
         </div>
       </section>
 
-      <article className="section">
-        <div className="container" style={{ maxWidth: "800px", margin: "0 auto" }}>
-          <p style={{ fontSize: "1.1rem", lineHeight: "1.8", color: "var(--ink-700)" }}>
-            In modern veterinary practices, patient care often heavily outweighs business 
-            strategy until the capacity breaks. When clinics wait until they are overwhelmed 
-            to fix operations, the cost of change doubles.
-          </p>
-          
-          <h2 style={{ margin: "2.5rem 0 1rem" }}>1. Fixing Operational Drag</h2>
-          <p style={{ fontSize: "1.1rem", lineHeight: "1.8", color: "var(--ink-700)" }}>
-            This occurs when associate veterinarians and front desk staff overlap tasks. 
-            Removing administrative friction directly increases clinical outcome capabilities 
-            as well as gross revenue without adding headcount.
-          </p>
+      <article className="section blogpost-body">
+        <div className="container blogpost-inner">
+          {post.excerpt && <p className="blogpost-lead">{post.excerpt}</p>}
 
-          {/* INLINE CTA AS REQUESTED IN CHECKLIST */}
-          <div className="card" style={{ margin: "3rem 0", borderLeft: "4px solid var(--accent)", backgroundColor: "var(--background-muted)" }}>
-            <h3>Stop Guessing About Your Market Position</h3>
-            <p style={{ margin: "0.5rem 0 1rem" }}>
-              Our Ekwa Marketing Audit looks at the six core factors preventing your 
-              practice from dominating local search. Use real data, not guesswork.
-            </p>
-            <a className="button button-primary" href={auditLink} target="_blank" rel="noreferrer">
-              Request Your Free Marketing Audit
-            </a>
-          </div>
+          {Array.isArray(post.heroStats) && post.heroStats.length > 0 && (
+            <div className="blogpost-stats">
+              {post.heroStats.map((s) => (
+                <div className="blogpost-stat" key={s.label}>
+                  <span className="blogpost-stat-value">{s.value}</span>
+                  <span className="blogpost-stat-label">{s.label}</span>
+                </div>
+              ))}
+            </div>
+          )}
 
-          <h2 style={{ margin: "2.5rem 0 1rem" }}>2. Culture acts as a Moat</h2>
-          <p style={{ fontSize: "1.1rem", lineHeight: "1.8", color: "var(--ink-700)" }}>
-            It is universally cheaper to retain an A-player DVM than it is to recruit 
-            and train a new one. Burnout in the veterinary space is usually structural, 
-            not necessarily tied to the workload alone but rather how the workload is processed.
-          </p>
+          {post.sections.map((sec, i) => (
+            <section className="blogpost-section" key={i}>
+              <h2>{sec.heading}</h2>
+              {sec.paragraphs.map((p, j) => (
+                <p key={j}>{p}</p>
+              ))}
+              {Array.isArray(sec.bullets) && sec.bullets.length > 0 && (
+                <ul className="blogpost-bullets">
+                  {sec.bullets.map((b, k) => (
+                    <li key={k}>{b}</li>
+                  ))}
+                </ul>
+              )}
+            </section>
+          ))}
+
+          {post.actionPlan && (
+            <section className="blogpost-actionplan">
+              <h2>{post.actionPlan.title}</h2>
+              <div className="blogpost-plan-grid">
+                {post.actionPlan.phases.map((ph, i) => (
+                  <div className="blogpost-plan-phase" key={i}>
+                    <span className="blogpost-plan-when">{ph.when}</span>
+                    <ul>
+                      {ph.items.map((it, j) => (
+                        <li key={j}>{it}</li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+            </section>
+          )}
+
+          {post.cta && (
+            <div className="blogpost-cta">
+              <h3>{post.cta.heading}</h3>
+              <p>{post.cta.body}</p>
+              <Link className="button button-primary" href="/consultation">
+                Book a Free Strategy Consultation &rarr;
+              </Link>
+            </div>
+          )}
         </div>
       </article>
+
+      {(prev || next) && (
+        <section className="section">
+          <div className="container blogpost-nav">
+            {prev ? (
+              <Link className="blogpost-nav-card" href={`/blog/${prev.slug}`}>
+                <span className="blogpost-nav-dir">&larr; Previous</span>
+                <span className="blogpost-nav-title">{prev.title}</span>
+              </Link>
+            ) : (
+              <span />
+            )}
+            {next ? (
+              <Link className="blogpost-nav-card blogpost-nav-next" href={`/blog/${next.slug}`}>
+                <span className="blogpost-nav-dir">Next &rarr;</span>
+                <span className="blogpost-nav-title">{next.title}</span>
+              </Link>
+            ) : (
+              <span />
+            )}
+          </div>
+        </section>
+      )}
     </>
   );
 }

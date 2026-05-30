@@ -2,6 +2,8 @@
 
 import { useMemo, useState } from "react";
 import styles from "./page.module.css";
+import { trackEvent } from "../lib/analytics";
+import { submitLead } from "../lib/submit-lead";
 
 const roleOptions = [
   "Practice Owner",
@@ -39,7 +41,7 @@ export default function CommunityJoinForm({
     role: "",
     interest: "",
   });
-  const [submitted, setSubmitted] = useState(false);
+  const [status, setStatus] = useState("idle"); // idle | sending | success | error
 
   const mailtoHref = useMemo(() => {
     const subject = encodeURIComponent("VBI Community Hub Access Request");
@@ -66,10 +68,12 @@ export default function CommunityJoinForm({
     }));
   }
 
-  function handleSubmit(event) {
+  async function handleSubmit(event) {
     event.preventDefault();
-    setSubmitted(true);
-    window.location.href = mailtoHref;
+    setStatus("sending");
+    trackEvent("form_submit", { form_name: "community_join" });
+    const res = await submitLead("community_join", { ...formState });
+    setStatus(res.ok ? "success" : "error");
   }
 
   return (
@@ -136,15 +140,26 @@ export default function CommunityJoinForm({
           </label>
         </div>
 
-        <button className={`button button-primary ${styles.formButton}`} type="submit">
-          {buttonLabel}
+        <button
+          className={`button button-primary ${styles.formButton}`}
+          type="submit"
+          disabled={status === "sending"}
+        >
+          {status === "sending" ? "Joining…" : buttonLabel}
         </button>
       </form>
 
       <p className={styles.formNote}>{note}</p>
-      {submitted ? (
+      {status === "success" ? (
         <div className={styles.formSuccess}>
-          Your email app should open with the request details. If it does not, send your note to {email}.
+          🎉 Welcome to the community! Check your inbox — we&rsquo;ll be in touch with your
+          access details shortly.
+        </div>
+      ) : null}
+      {status === "error" ? (
+        <div className={styles.formSuccess}>
+          Something went wrong sending your request. Please{" "}
+          <a href={mailtoHref}>email it to us directly</a> and we&rsquo;ll get you set up.
         </div>
       ) : null}
     </article>
