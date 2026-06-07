@@ -473,6 +473,22 @@ button {
   width: auto;
 }
 
+/* The dropdown panel surface. The Tailwind opacity utilities on the Radix
+   viewport (bg-white/95, border-white/60) don't compile in this v4 setup, so
+   the panel rendered transparent in light mode and the dark hero showed
+   through — making the menu text unreadable. Set the surface in real CSS. */
+.nav-menu-viewport {
+  background: rgba(255, 255, 255, 0.97);
+  border-color: rgba(16, 35, 32, 0.08);
+  box-shadow: 0 20px 60px rgba(16, 35, 32, 0.18), 0 0 0 1px rgba(16, 35, 32, 0.04);
+}
+
+html[data-theme="dark"] .nav-menu-viewport {
+  background: #0b1a17;
+  border-color: rgba(199, 226, 207, 0.14);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(199, 226, 207, 0.08);
+}
+
 .nav-dropdown-shell {
   display: grid;
   grid-template-columns: 200px 1fr;
@@ -2675,6 +2691,14 @@ button {
   line-height: 1;
 }
 
+/* The ghost-stats section is a fixed dark-green panel in BOTH themes, so its
+   text must always be light. --white flips to a dark "paper" token in dark
+   mode, which made the counters and heading invisible — pin them to real
+   white here. */
+.section-stats-ghost .animated-counter {
+  color: #ffffff;
+}
+
 .ghost-counter-item p {
   margin: 0;
   color: rgba(255, 255, 255, 0.6);
@@ -2687,7 +2711,7 @@ button {
 }
 
 .stats-ghost-copy h2 {
-  color: var(--white) !important;
+  color: #ffffff !important;
   margin: 12px 0 18px;
 }
 
@@ -3770,6 +3794,19 @@ button {
   font-size: 0.9rem;
   color: var(--ink-700);
   line-height: 1.6;
+}
+
+/* Dark mode: the badge was a fixed white box and the text used --ink-700,
+   which flips to a light grey in dark mode — light text on a white box was
+   unreadable. Make it a dark glass card with light text so it's clear and
+   matches the rest of the dark theme. */
+html[data-theme="dark"] .consult-hero-badge {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(199, 226, 207, 0.16);
+}
+
+html[data-theme="dark"] .consult-badge-text {
+  color: var(--ink-800);
 }
 
 /* Hero "what's included" points (left column) */
@@ -6362,9 +6399,13 @@ html[data-theme="dark"] .nav-menu-link {
 }
 html[data-theme="dark"] .nav-menu-trigger:hover,
 html[data-theme="dark"] .nav-menu-link:hover,
+html[data-theme="dark"] .nav-menu-trigger:focus-visible,
+html[data-theme="dark"] .nav-menu-link:focus-visible,
 html[data-theme="dark"] .nav-menu-trigger.is-active,
 html[data-theme="dark"] .nav-menu-link.is-active {
-  color: #c6f800;
+  color: #d6ff3a;
+  background: rgba(198, 248, 0, 0.12);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35);
 }
 
 /* Nav dropdown panel */

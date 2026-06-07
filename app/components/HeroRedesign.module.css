@@ -190,6 +190,13 @@
   transform: rotate(45deg);
 }
 
+/* Dark mode: --green-500/--teal-500 flip to light pastel greens, so the white
+   label and chevron on the now light-green fill were unreadable. Switch the
+   text to a dark green for strong contrast on the bright button. */
+:global(html[data-theme="dark"]) .getStartedBtn {
+  color: #0b2a1e;
+}
+
 .getStartedBtn:hover {
   transform: translateY(-5px) scale(1.05);
   box-shadow: 0 15px 30px rgba(47, 107, 69, 0.4);
@@ -248,10 +255,13 @@
   width: 45px;
   height: 45px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.8);
+  /* Solid white with a green ring so the circles stay visible on BOTH the
+     light-mint and dark hero backgrounds. The previous white border made the
+     circles vanish against the light background. */
+  background: #ffffff;
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 1);
-  box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+  border: 1px solid rgba(47, 107, 69, 0.22);
+  box-shadow: 0 4px 14px rgba(16, 35, 32, 0.14);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -272,7 +282,10 @@
 .logoBrand svg {
   width: 20px;
   height: 20px;
-  color: var(--teal-500);
+  /* Fixed dark green (not var(--teal-500), which flips to a washed-out light
+     green in dark mode) — the circle is always white, so a dark icon keeps
+     high contrast in both themes. */
+  color: #2f6b45;
 }
 
 /* Graphic Line SVG */
