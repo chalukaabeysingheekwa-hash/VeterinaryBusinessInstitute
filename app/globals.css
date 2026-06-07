@@ -310,6 +310,33 @@ button {
   }
 }
 
+/* Size the header logo by height. The width-based rules above were capped by
+   `img { max-width: 100% }` against the narrow auto-sized brand grid column,
+   collapsing the logo to ~19px tall. Height + max-width:none lets the grid
+   track grow to the logo's natural width. Scoped to .brand-logo so the mobile
+   sheet logo (inline width) is untouched. */
+.brand .brand-logo {
+  height: 34px;
+  width: auto;
+  max-width: none;
+}
+
+/* The 1080–1280 range is the tightest: the full desktop menu is visible but
+   the container is narrow, so the logo must stay compact to avoid clipping
+   the Contact Now CTA. Below 1080 the menu collapses to a hamburger, freeing
+   room again. */
+@media (min-width: 1080px) and (max-width: 1279.98px) {
+  .brand .brand-logo {
+    height: 20px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .brand .brand-logo {
+    height: 34px;
+  }
+}
+
 .menu {
   display: flex;
   align-items: center;
@@ -380,13 +407,16 @@ button {
 /* Scale up nav spacing on wider screens */
 @media (min-width: 1280px) {
   .nav-inner-grid {
-    gap: 18px;
+    gap: 16px;
   }
 }
 
 @media (min-width: 1440px) {
   .nav-inner-grid {
-    gap: 24px;
+    /* Keep at 16px: the nav pill is capped at max-width 1240px, so a larger
+       gap here overflows the row and clips the Contact Now CTA (which has
+       overflow:hidden) once the header logo is at full size. */
+    gap: 16px;
   }
 }
 
@@ -431,10 +461,13 @@ button {
 }
 
 @media (min-width: 1440px) {
+  /* Keep the 1280 spacing here. A larger padding/font inflates the 8-item
+     menu's min width by ~57px, which (with the bigger logo) overflows the
+     fixed-width nav pill and clipped the Contact Now CTA. */
   .nav-menu-link,
   .nav-menu-trigger {
-    padding: 0 14px;
-    font-size: 0.88rem;
+    padding: 0 12px;
+    font-size: 0.85rem;
     min-height: 40px;
   }
 }
@@ -900,6 +933,10 @@ html[data-theme="dark"] .nav-menu-viewport {
   margin-left: 4px;
   overflow: hidden;
   isolation: isolate;
+  /* overflow:hidden lets the grid collapse this column to 0 min-width, which
+     clipped the "Contact Now" label when the larger logo tightened the row.
+     Pin it to its content width so the 1fr menu yields the space instead. */
+  min-width: max-content;
   gap: 0;
   /* Symmetric padding keeps the label centered at rest; the hover arrow
      (absolute, right:20px) reveals as the label shifts left on hover. */
