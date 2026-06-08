@@ -40,7 +40,7 @@ export default function SiteFooter() {
 
       <div className="container footer-grid">
         <div className="footer-brand">
-          <img src={withBasePath("/assets/logo-white.svg")} alt="Veterinary Business Institute" />
+          <img src={withBasePath("/assets/logo-white.png")} alt="Veterinary Business Institute" />
           <p>
             Veterinary Business Institute is a resource hub for veterinarians focused on business
             growth, leadership, operations, culture, client experience, and digital visibility.

@@ -68,8 +68,8 @@ export default function SiteHeader() {
 
               {/* Logo */}
               <Link className="brand shrink-0" href="/" aria-label="Veterinary Business Institute home">
-                <img className="brand-logo brand-logo-light" src={withBasePath("/assets/logo.svg")} alt="Veterinary Business Institute" />
-                <img className="brand-logo brand-logo-dark" src={withBasePath("/assets/logo-white.svg")} alt="Veterinary Business Institute" />
+                <img className="brand-logo brand-logo-light" src={withBasePath("/assets/logo.png")} alt="Veterinary Business Institute" />
+                <img className="brand-logo brand-logo-dark" src={withBasePath("/assets/logo-white.png")} alt="Veterinary Business Institute" />
               </Link>
 
               {/* Desktop Nav */}
@@ -186,7 +186,7 @@ export default function SiteHeader() {
         {/* Sheet header */}
         <div className="vbi-sheet-head">
           <Link href="/" className="brand" onClick={() => setSheetOpen(false)}>
-            <img src={withBasePath("/assets/logo.svg")} alt="Veterinary Business Institute" style={{ width: 160 }} />
+            <img src={withBasePath("/assets/logo.png")} alt="Veterinary Business Institute" style={{ width: 160 }} />
           </Link>
           <button
             className="vbi-sheet-close"

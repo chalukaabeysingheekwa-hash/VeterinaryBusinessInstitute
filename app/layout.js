@@ -44,7 +44,7 @@ const organizationSchema = {
   "@type": "Organization",
   name: "Veterinary Business Institute",
   url: siteUrl,
-  logo: `${siteUrl}/assets/logo.svg`,
+  logo: `${siteUrl}/assets/logo.png`,
   email: "team@veterinarybusinessinstitute.com",
   telephone: contactDetails[0]?.label,
   address: {
